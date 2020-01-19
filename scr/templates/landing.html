@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <link rel="apple-touch-icon" href="{% static 'logo.png' %}">
+        <link rel="icon" href="{% static 'logo.png' %}">
+
+        <title>Framed-IIT Jodhpur</title>
+        <meta name="description" content="Annual Art Exhibiton of IIT Jodhpur">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Framed-IIT Jodhpur">
+        <meta property="og:description" content="Annual Art Exhibiton of IIT Jodhpur">
+
+        <script type="text/javascript" src="{% static 'dat.gui.min.js' %}"></script>
+        <style>
+
+            html,body {
+                margin: 0;
+                background-color: #000;
+                width: 100%;
+                height: 100%;
+                padding: 0;
+            }
+
+            .main {
+                background-color: #000;
+                position:absolute;
+                width: 100%;
+                height: 100%;
+                background-size: cover !important;
+            }
+
+            .main-overlay2 {
+                box-sizing:border-box;
+                height: 100%;
+                width: 100%;
+            }
+
+
+            .fluid-canvas {
+                width: 100%;
+                height: 100%;
+            }
+
+            .dg {
+                opacity: 0.9;
+            }
+
+            .dg .property-name {
+                overflow: visible;
+            }
+
+            @font-face {
+                font-family: 'iconfont';
+                src: url('iconfont.ttf') format('truetype');
+            }
+
+            .bigFont {
+                font-size: 150%;
+                color: #8C8C8C;
+            }
+
+            .cr.function.appBigFont {
+                font-size: 150%;
+                line-height: 27px;
+                color: #A5F8D3;
+                background-color: #023C40;
+            }
+
+            .cr.function.appBigFont .property-name {
+                float: none;
+            }
+
+            .cr.function.appBigFont .icon {
+                position: sticky;
+                bottom: 27px;
+            }
+
+            .icon {
+                font-family: 'iconfont';
+                font-size: 130%;
+                float: right;
+            }
+
+            .twitter:before {
+                content: 'a';
+            }
+
+            .github:before {
+                content: 'b';
+            }
+
+            .app:before {
+                content: 'c';
+            }
+
+            .discord:before {
+                content: 'd';
+            }
+            @font-face {
+                font-family: 'Circular';
+                src: url({% static 'fonts/circular-regular.ttf' %}) format('truetype');
+                font-weight: 400;
+                font-style: normal
+            }
+
+            .title {
+            font-family: 'Circular', sans-serif;
+            font-weight: bold;
+            color: white;
+            font-size: 10vw;
+                margin-top: 0vh;
+                padding-top: 0vh;
+                padding-bottom: 0vh;
+                margin-bottom: 0vh;
+                padding-left: 0vh;
+                margin-left: 0vh;
+            }
+
+            .div-title {
+                position: absolute;
+                left: 0vh;
+                padding-left: 4vh;
+                bottom: 0vh;
+            }
+
+            a {
+                font-family: 'Circular', sans-serif;
+                font-weight: 700;
+  color: #fff;  
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  margin-right: 2vh;
+  display: inline-block;
+  padding-bottom: 1vh;
+  padding-right: 1vh;
+  position: relative;
+}
+a:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: rgb(221, 26, 26);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+            .br {
+                display: none;
+            }
+
+            @media screen and (max-width: 768px) and (orientation: Portrait ) {
+                .title {
+                padding-bottom: 0vh;
+                margin-bottom: 0vh;
+                padding-left: 0vh;
+                margin-left: 0vh;
+                font-size: 20vw;
+                }
+                .div-title {
+                    padding-left: 3vw;
+                    margin-top: 100vw;
+                }
+
+            }
+            @media screen and (max-width: 768px) {
+                .br {
+                    display: inline;
+                } 
+            }            
+        </style>
+    </head>
+    <body>
+        <section id="main" class="main">
+            <canvas class="fluid-canvas"></canvas>
+            <script src="{% static 'js/fluid-canvas.js' %}"></script>
+        </section>
+        <section class="main-overlay">
+            <div class="div-title">
+                <a href="#" class="btn6">Know More</a><br class="br"><br class="br">
+                <a href="#" class="btn6">Submit Entries</a>
+                <h1 class="title">Framed</h1>
+            </div>
+        </section>
+        <section class="main-overlay2"></section>
+    </body>
+</html>
