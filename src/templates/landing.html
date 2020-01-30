@@ -1,259 +1,193 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="Cache-Control" content="no-cache">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 
-        <title>Framed-IIT Jodhpur</title>
-        <meta name="description" content="Annual Art Exhibiton of IIT Jodhpur">
+    <title>Framed-IIT Jodhpur</title>
+    <meta name="description" content="Annual Art Exhibiton of IIT Jodhpur">
 
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Framed-IIT Jodhpur">
-        <meta property="og:description" content="Annual Art Exhibiton of IIT Jodhpur">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Framed-IIT Jodhpur">
+    <meta property="og:description" content="Annual Art Exhibiton of IIT Jodhpur">
 
-        <script type="text/javascript" src="{% static 'dat.gui.min.js' %}"></script>
-        <style>
+    <script type="text/javascript" src="{% static 'dat.gui.min.js' %}"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+        }
 
-            html,body {
-                margin: 0;
-                background-color: #000;
-                width: 100%;
-                height: 100%;
-                padding: 0;
-            }
-
-            .main {
-                background-color: #000;
-                position:absolute;
-                width: 100%;
-                height: 100%;
-                background-size: cover !important;
-            }
-
-            .main-overlay2 {
-                box-sizing:border-box;
-                height: 100%;
-                width: 100%;
-            }
+        .main {
+            background-color: #000;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover !important;
+        }
 
 
-            .fluid-canvas {
-                width: 100%;
-                height: 100%;
-            }
+        .fluid-canvas {
+            width: 100%;
+            height: 100%;
+        }
 
-            .dg {
-                opacity: 0.9;
-            }
+        .dg {
+            opacity: 0.9;
+        }
 
-            .dg .property-name {
-                overflow: visible;
-            }
+        .dg .property-name {
+            overflow: visible;
+        }
 
-            @font-face {
-                font-family: 'iconfont';
-                src: url('iconfont.ttf') format('truetype');
-            }
+        @font-face {
+            font-family: 'iconfont';
+            src: url('iconfont.ttf') format('truetype');
+        }
 
-            .bigFont {
-                font-size: 150%;
-                color: #8C8C8C;
-            }
 
-            .cr.function.appBigFont {
-                font-size: 150%;
-                line-height: 27px;
-                color: #A5F8D3;
-                background-color: #023C40;
-            }
+        @font-face {
+            font-family: 'Circular';
+            src: url({% static 'fonts/circular-regular.ttf' %}) format('truetype');
+            font-weight: 400;
+            font-style: normal
+        }
 
-            .cr.function.appBigFont .property-name {
-                float: none;
-            }
+        .main-overlay {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
 
-            .cr.function.appBigFont .icon {
-                position: sticky;
-                bottom: 27px;
-            }
+        .div-title {
+            position: relative;
+        }
 
-            .icon {
-                font-family: 'iconfont';
-                font-size: 130%;
-                float: right;
-            }
-
-            .twitter:before {
-                content: 'a';
-            }
-
-            .github:before {
-                content: 'b';
-            }
-
-            .app:before {
-                content: 'c';
-            }
-
-            .discord:before {
-                content: 'd';
-            }
-            @font-face {
-                font-family: 'Circular';
-                src: url({% static 'fonts/circular-regular.ttf' %}) format('truetype');
-                font-weight: 400;
-                font-style: normal
-            }
-
-            .title {
+        .title {
             font-family: 'Circular', sans-serif;
             font-weight: bold;
             color: white;
-            font-size: 10vw;
-                margin-top: 0vh;
-                padding-top: 0vh;
-                padding-bottom: 0vh;
-                margin-bottom: 0vh;
-                padding-left: 0vh;
-                margin-left: 0vh;
-            }
+        }
 
-            .div-title {
-                position: absolute;
-                left: 0vh;
-                padding-left: 4vh;
-                bottom: 0vh;
-                margin-bottom: 15%;
-                margin-left: 30%;
-            }
+        .dates {
+            font-family: 'Circular', sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.15em;
+        }
 
-            a {
-                font-family: 'Circular', sans-serif;
-                font-weight: 700;
-  color: #fff;  
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.15em;
-  margin-right: 2vh;
-  display: inline-block;
-  padding-bottom: 1vh;
-  padding-right: 1vh;
-  position: relative;
-}
 
-.dates {
-                font-family: 'Circular', sans-serif;
-                font-weight: 700;
-  color: #fff;  
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.15em;
-  margin: auto;
-  display: inline-block;
-  position:relative;
-  text-align: right !important;
 
-}
-a:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #DD1A1A;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-a:hover:after { 
-  width: 100%; 
-  left: 0; 
-}
-            .br {
-                display: none;
-            }
+        a {
+            margin-right: 1vw;
+            font-family: 'Circular', sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.15em;
+            display: inline-block;
+            position: relative;
+        }
+
+
+        a:after {
+            text-decoration:none; 
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            background: #DD1A1A;
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+
+        a:hover:after {
+            text-decoration:none; 
+            width: 100%;
+            left: 0;
+        }
+
+        .br {
+            display: none;
+        }
+
+        .laptop {
+            display: inline;
+        }
+
+        .mobile {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) and (orientation: Portrait) {
+
+
+
             .laptop {
-                display: inline;
-            }
-            .mobile {
                 display: none;
             }
 
-            @media screen and (max-width: 768px) and (orientation: Portrait ) {
-                .title {
-                padding-bottom: 0vh;
-                margin-bottom: 0vh;
-                padding-left: 0vh;
-                margin-left: 0vh;
-                font-size: 20vw;
-                }
-                .div-title {
-                position: absolute;
-                left: 0vh;
-                padding-left: 0vh;
-                bottom: 0vh;
-                margin-bottom: 50vh;
-                margin-left: 8vh;
-            }
-            a {
-                font-family: 'Circular', sans-serif;
-                font-weight: 700;
-                color: #fff;  
-                text-transform: uppercase;
-                text-decoration: none;
-                letter-spacing: 0.15em;
-                padding-right: 0;
-                padding-bottom: 0;
-                margin-right: 0;
-                display: inline-block;
-                position: relative;
-                }
-                .laptop {
-                display: none;
-            }
             .mobile {
                 display: inline;
             }
 
+        }
+
+        @media screen and (max-width: 768px) {
+            .br {
+                display: inline;
             }
-            @media screen and (max-width: 768px) {
-                .br {
-                    display: inline;
-                }
-            }            
-        </style>
-    </head>
-    <body>
-        <section id="main" class="main">
-            <canvas class="fluid-canvas"></canvas>
-            <script src="{% static 'js/fluid-canvas.js' %}"></script>
-        </section>
-        <section class="main-overlay" >
-            <div class="div-title laptop" >
-                <a href="https://www.facebook.com/sda.iitj/" class="btn6">Know More</a><br class="br"><br class="br">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScGipyMaI5bWb6OwjMzAPdgvx1YWY2WtR7i3h9no1xMxXixLg/viewform" class="btn6">Submit Entries</a>
-            <div style="text-align: right;">
-                <h1 class="title">Framed</h1>
-                <h1 class="dates" >March 7&8</h1>
+        }
+    </style>
+</head>
+
+<body>
+    <section id="main" class="main">
+        <canvas class="fluid-canvas"></canvas>
+        <script src="{% static 'js/fluid-canvas.js' %}"></script>
+    </section>
+    <section class="main-overlay">
+        <div class="div-title d-inline-flex flex-column justify-content-center laptop">
+            <div class="mr-auto ">
+                <a href="https://www.facebook.com/sda.iitj/" class="btn6">Know More</a><br class="br">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScGipyMaI5bWb6OwjMzAPdgvx1YWY2WtR7i3h9no1xMxXixLg/viewform"
+                    class="btn6">Submit Entries</a>
             </div>
+            <div >
+                <h1 class="title display-1">Framed</h1>
+            </div >
+            <div class="ml-auto">
+                <h2 class="dates">March 7&8</h2>
             </div>
-                <div class="div-title mobile" >
-                <div style="text-align: right; margin-top: 100%;">
-                    <h1 class="title">Framed</h1>
-                    <h1 class="dates" >March 7&8</h1>
-                </div>
-                <div style="text-align: center; padding-top: 40%;">
-                <a href="https://www.facebook.com/sda.iitj/" class="btn6">Know More</a><br class="br"><br class="br">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScGipyMaI5bWb6OwjMzAPdgvx1YWY2WtR7i3h9no1xMxXixLg/viewform" class="btn6">Submit Entries</a>
-            </div>
-            </div>
-        </section>
-        <section class="main-overlay2"></section>
-    </body>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>
