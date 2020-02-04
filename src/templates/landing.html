@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +11,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/ciba-1.appspot.com/o/favicon.ico?alt=media&token=61189d5e-319c-45f1-bb88-72d29a1ed49c" type="image/gif" sizes="16x16">
 
     <title>Framed-IIT Jodhpur</title>
     <meta name="description" content="Annual Art Exhibiton of IIT Jodhpur">
@@ -19,6 +19,7 @@
     <meta property="og:title" content="Framed-IIT Jodhpur">
     <meta property="og:description" content="Annual Art Exhibiton of IIT Jodhpur">
 
+    <script type="text/javascript" src="{% static 'dat.gui.min.js' %}"></script>
     <style>
         html,
         body {
@@ -58,9 +59,10 @@
 
 
         @font-face {
-            font-family: 'Circular', sans-serif;
+            font-family: 'Circular';
+            src: url({% static 'fonts/circular-regular.ttf' %}) format('truetype');
             font-weight: 400;
-            font-style: normal
+            font-style: normal;
         }
 
         .main-overlay {
@@ -103,7 +105,7 @@
 
 
         a:after {
-            text-decoration:none;
+            text-decoration:none; 
             background: none repeat scroll 0 0 transparent;
             bottom: 0;
             content: "";
@@ -117,7 +119,7 @@
         }
 
         a:hover:after {
-            text-decoration:none;
+            text-decoration:none; 
             width: 100%;
             left: 0;
         }
@@ -153,79 +155,23 @@
                 display: inline;
             }
         }
-        @import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
-/* Main styles */
- .text {
-	 fill: none;
-	 stroke-width: 3;
-	 stroke-linejoin: round;
-	 stroke-dasharray: 70 330;
-	 stroke-dashoffset: 0;
-	 -webkit-animation: stroke 6s infinite linear;
-	 animation: stroke 6s infinite linear;
-}
- .text:nth-child(5n + 1) {
-	 stroke: #f00;
-	 -webkit-animation-delay: -1.2s;
-	 animation-delay: -1.2s;
-}
- .text:nth-child(5n + 2) {
-	 stroke: #ddd;
-	 -webkit-animation-delay: -2.4s;
-	 animation-delay: -2.4s;
-}
- .text:nth-child(5n + 3) {
-	 stroke: #e00;
-	 -webkit-animation-delay: -3.6s;
-	 animation-delay: -3.6s;
-}
- .text:nth-child(5n + 4) {
-	 stroke: #fff;
-	 -webkit-animation-delay: -4.8s;
-	 animation-delay: -4.8s;
-}
- .text:nth-child(5n + 5) {
-	 stroke: #FEC;
-	 -webkit-animation-delay: -6s;
-	 animation-delay: -6s;
-}
- @-webkit-keyframes stroke {
-	 100% {
-		 stroke-dashoffset: -400;
-	}
-}
- @keyframes stroke {
-	 100% {
-		 stroke-dashoffset: -400;
-	}
-}
-/* Other styles */
-
-	 position: absolute;
-	 width: 100%;
-   svg {
-	 height: 100%;
-}
-
     </style>
 </head>
 
 <body>
     <section id="main" class="main">
         <canvas class="fluid-canvas"></canvas>
-        <script src="/media/{{ object.custom_js }}"></script>
+        <script src="{% static 'js/fluid-canvas.js' %}"></script>
     </section>
     <section class="main-overlay">
         <div class="div-title d-inline-flex flex-column justify-content-center laptop">
             <div class="mr-auto ">
-                <a href="https://www.facebook.com/sda.iitj/" class="btn6" style="color: white;text-decoration: none">Know More</a><br class="br">
-                <a href="https://docs.google.com/forms/u/3/d/14lEkobgoIKlmhdAOHSGE_D_4IMUtO7lsYfRdZFWEEDY/edit"
-                    class="btn6" style="color: white;text-decoration: none">Submit Entries</a>
+                <a href="https://www.facebook.com/sda.iitj/" class="btn6">Know More</a><br class="br">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScGipyMaI5bWb6OwjMzAPdgvx1YWY2WtR7i3h9no1xMxXixLg/viewform"
+                    class="btn6">Submit Entries</a>
             </div>
             <div >
-                <h1 class="title display-1">
-                <svg viewbox="0 0 350 100"><!-- Symbol--><symbol id="s-text"><text text-anchor="middle" x="50%" y="50%" dy=".25em">Framed</text></symbol><!-- Duplicate symbols--><use class="text" xlink:href="#s-text"></use><use class="text" xlink:href="#s-text"></use><use class="text" xlink:href="#s-text"></use><use class="text" xlink:href="#s-text"></use><use class="text" xlink:href="#s-text"></use></svg>
-</h1>
+                <h1 class="title display-1">Framed</h1>
             </div >
             <div class="ml-auto">
                 <h2 class="dates">March 7&8</h2>
