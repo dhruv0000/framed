@@ -18,8 +18,6 @@ Landing Page for the annual Art Exebition of IIT Jodhpur.
     ```
 - Install Dependinces
     ```
-    pip install -r requirements.txt
-    or,
     pip3 install -r requirements.txt
     ```
 - Make database migrations
