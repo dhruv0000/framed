@@ -1,5 +1,5 @@
 # framed
-Landing Page for the annual Art Exebition of IIT Jodhpur.
+Landing Page for the annual Art Exebition of IIT Jodhpur. http://framed2020.herokuapp.com/
 
 # Setup
 - Install [python](https://www.python.org/downloads/) in your environment(pre-installed on Ubuntu).
